@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Book {
     private String title;
     private String author;
@@ -13,6 +16,27 @@ class Book {
 
 }
 
+class Library {
+    private List<Book> books = new ArrayList<>();
+
+    public void addBook(Book book) {
+        books.add(book);
+        // Додавання книги до бібліотеки
+    }
+
+    public void displayBooks() {
+        // Відображення всіх книг в бібліотеці
+    }
+
+    public Book findBookByTitle(String title) {
+        // Пошук книги за назвою
+        return null;
+    }
+
+    public void removeBookByIsbn(String isbn) {
+        // Видалення книги за ISBN
+    }
+}
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
