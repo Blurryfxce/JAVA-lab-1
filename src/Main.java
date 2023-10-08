@@ -22,13 +22,17 @@ class Book {
         return isbn;
     }
 
+    @Override
+    public String toString() {
+        return "Назва: " + title + "\nАвтор: " + author + "\nISBN: " + isbn + "\nРік видання: " + year + "\n";
+    }
+
 }
 
 class Library {
     private List<Book> books = new ArrayList<>();
 
     public void addBook(Book book) {
-        books.add(book);
         books.add(book);
         System.out.println("Книга додана до бібліотеки.");
     }
@@ -68,6 +72,27 @@ class Library {
 }
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Library library = new Library();
+
+        // Додавання книг
+        library.addBook(new Book("Книга 1", "Автор 1", "1234567890", 2022));
+        library.addBook(new Book("Книга 2", "Автор 2", "0987654321", 2023));
+
+        // Показати всі книги що в бібліотеці
+        library.displayBooks();
+
+        // Шукати книгу за назвою
+        Book foundBook = library.findBookByTitle("Книга 1");
+        if (foundBook != null) {
+            System.out.println("Знайдена книга:\n" + foundBook);
+        } else {
+            System.out.println("Книга не знайдена.");
+        }
+
+        // Видалити книгу за ISBN
+        library.removeBookByIsbn("1234567890");
+
+        // Повторний показ всіх книг
+        library.displayBooks();
     }
 }
